@@ -1,8 +1,8 @@
 resource "aws_instance" "web" {
   ami                         = var.amis
-  instance_type               = "t2.micro"
+  instance_type               = var.instance_type
   associate_public_ip_address = true
-  key_name                    = "Ubuntu-Instance"
+  key_name                    = var.key_name
   subnet_id                   = aws_subnet.public-subnet.id
   vpc_security_group_ids      = [aws_security_group.allow_all.id]
   tags = {
